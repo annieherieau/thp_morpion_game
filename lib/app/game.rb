@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
-# class AppClass
-#   attr_accessor :test
+class Game
+  attr_accessor :player1, :player2
   
-#   def initialize
-#     @test = "AppClass initialized: OK"
-#   end
-# end
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
+  end
+end

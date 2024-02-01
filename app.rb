@@ -3,22 +3,22 @@ require 'bundler'
 Bundler.require
 
 $:.unshift File.expand_path("./../lib", __FILE__)
-require "app/morpion_app"
-require "app/game"
 require "app/player"
+require "app/game"
 require "app/board"
 require "app/board_case"
+require "app/morpion_app"
 require "views/show"
 
 # JOUER à MORPION
 morpion = MorpionApp.new
-screen = morpion.screen
+screen = morpion.show
 user1 = morpion.player1
 user2 = morpion.player2
 
 # GAME - boucle 
 while morpion.play
-  morpion.start_new_game
+  game = morpion.new_game
 
   # GAME ROUND - boucle until over?
 
