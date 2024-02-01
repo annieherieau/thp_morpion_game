@@ -1,9 +1,16 @@
 # frozen_string_literal: true
 
-# class AppClass
-#   attr_accessor :test
+class BoardCase
+  attr_accessor :name, :line, :row, :value
   
-#   def initialize
-#     @test = "AppClass initialized: OK"
-#   end
-# end
+  def initialize(name)
+    @name = name 
+    @value = ''
+    @line = @name.chars.first
+    @row = @name.chars.last
+  end
+
+  def is_empty?
+    @value.empty?
+  end
+end

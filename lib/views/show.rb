@@ -8,13 +8,21 @@ class Show
     @grid
   end
 
+  def board(board_array)
+    board_array.each {|line| puts line}
+  end
+
+  def score_history(hash)
+    puts "AFFICHAGE HISTORIQUE DES PARTIES"
+    puts hash
+  end
 
   ##_________ METHODES OK 
 
   # affiche le début de la nouvelle partie
   def new_game(game)
     text = "#{game.player1.avatar} #{game.player1.name.upcase}  vs  #{game.player2.avatar} #{game.player2.name.upcase}"
-    skip_line
+    clear
     title('Nouvelle partie')
     center_text(text)
     center_text('-' * (text.length + 10))
