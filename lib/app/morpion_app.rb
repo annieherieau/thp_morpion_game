@@ -20,13 +20,11 @@ class MorpionApp
       @show.round_game(self)
       @show.board(@game.board)
       break if @game.is_over?
-      
+
       @show.ask_player_choice(player)
       @game.player_turn(i)
     end
   end
-
-
 
   # Demander au joueur s'il veut rejouer
   def play_again?

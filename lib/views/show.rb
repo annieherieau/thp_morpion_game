@@ -7,16 +7,10 @@ class Show
     welcome
   end
 
-  
-
-  
-
   def score_history(history)
     puts "AFFICHAGE HISTORIQUE DES SCORES"
     puts history
   end
-
- 
 
   ##_________ METHODES OK 
 

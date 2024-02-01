@@ -8,7 +8,6 @@ class Board
     @played_cases = []
     @array_of_cases = []
     @set = built_set_of_cases #array of hashes
-    
   end
 
 # _______ METHODES OK
