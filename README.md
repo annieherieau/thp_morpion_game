@@ -1,4 +1,4 @@
-# Morpion
+# Morpion / Tic-tac-toe
 
 Projet validant du 01/02/2024
 

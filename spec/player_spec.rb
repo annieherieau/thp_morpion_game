@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative "../lib/app/app_class"
+require_relative "../lib/app/player"
 
 # test exemple
 # describe "say_hello funcion" do
