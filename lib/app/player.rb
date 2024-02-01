@@ -14,7 +14,7 @@ class Player
   ##_________ METHODES  OK 
   # demander quelle case il veut jouer
   def get_choice
-    @choice = gets.chomp.upcase while @choice == ''
+    @choice = gets.chomp.upcase
   end
 
   # demander son nom

@@ -7,9 +7,7 @@ class Show
     welcome
   end
 
-  def ask_player_choice(player)
-    puts "#{player.avatar} #{player.name}, c'est ton tour : "
-  end
+  
 
   
 
@@ -21,6 +19,11 @@ class Show
  
 
   ##_________ METHODES OK 
+
+  # demande le choix du joueur
+  def ask_player_choice(player)
+    print "#{player.avatar} #{player.name}, c'est ton tour : "
+  end
 
   # affichage du Plateau de jeu
   def board(board)

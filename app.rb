@@ -14,7 +14,7 @@ require "views/show"
 morpion = MorpionApp.new
 show = morpion.show
 player1 = morpion.player1
-player1 = morpion.player2
+player2 = morpion.player2
 
 play_again = true
 # JOUER à MORPION : play_again == true
@@ -22,8 +22,9 @@ while play_again
   # GAME : game.is_over? == false
   game = morpion.new_game
   board = game.board
-  # until game.is_over?
-  show.board(board)
+
+  until game.is_over?
+    morpion.new_round
 
 
 
@@ -33,9 +34,8 @@ while play_again
 
 
 
-
-    # break if game.is_over?
-  # end
+    break if game.is_over?
+  end
   # --- fin GAME OVER : game.is_over? == true
 
   # AFFICHER LE SCORE
@@ -49,8 +49,7 @@ end
 # ____ Fin JOUER à MORPION : play_again == false
 
 # afficher l'historique des scores
-show.score_history(morpion.score_history)
-show.bye
+morpion.end
 # ---- Fin de l'application
 
 
