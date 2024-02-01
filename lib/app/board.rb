@@ -1,30 +1,32 @@
 # frozen_string_literal: true
 
 class Board
-  attr_accessor :size, :played_cases, :set_of_cases
+  attr_accessor :size, :played_cases, :set
   
   def initialize
     @size = 3
     @played_cases = []
-    @set_of_cases = built_set_of_cases #array of hashes
+    @set = built_set_of_cases #array of hashes
     # @cases_array = built_board_cases
   end
 
   # Construit la grille des cases
+  # { A => { 1=> A1, 2 => A2, 3 => A3}, B => idem, C => idem }
+  # board.set[lettre][num] = BoradCase.new(name)
   def built_set_of_cases
-    array = []
-    # lignes
-    ('A'.ord ... ('A'.ord) + @size).each do |x|
-      letter = x.chr
-      line_array = []
-      # colonnes
-      (1..@size).each do |y|
-        case_name = letter + y.to_s
-        line_array << {case_name => BoardCase.new(case_name)}
+    set_hash = {}
+    # lignes Hash{ Array [ ]}
+    ('A'.ord ... ('A'.ord) + @size).each do |l_num|
+      letter = l_num.chr
+      set_hash[letter] = {}
+
+      # colonnes Hash {}
+      (1..@size).each do |num|
+        case_name = letter + num.to_s
+        set_hash[letter][num] = BoardCase.new(case_name)
       end
-      array << line_array
     end
-    return array
+    return set_hash
   end
 
   # # Création des cases

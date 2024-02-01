@@ -23,7 +23,6 @@ while play_again
   game = morpion.new_game
   board = game.board
   # until game.is_over?
-  puts board.set_of_cases
   show.board([])
 
 
