@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
 class Player 
-  attr_accessor :name, :number, :avatar, :case_to_play
+  attr_accessor :name, :number, :avatar, :sign, :case_to_play
   
   def initialize(number)
     @name = ''
     @number = number
+    @sign = number == 1 ? 'O' : 'X'
     @avatar = ['🐶', '🦄​', '🐯​', '🔥', '🍀', '🎲', '😸','🥰', '😁​', '😇', '😎', '🥳'].sample
     @case_to_play = ''
   end
