@@ -23,7 +23,7 @@ while play_again
   game = morpion.new_game
   board = game.board
   # until game.is_over?
-  show.board([])
+  show.board(board)
 
 
 

@@ -8,8 +8,21 @@ class Show
     @grid
   end
 
-  def board(board_array)
-    board_array.each {|line| puts line}
+  def board(board)
+    skip_line
+    puts ('-' * (board.size * 5)).center(50, ' ')
+    board.set.each do |lettre , line|
+      # str = lettre.center(3, ' ') + '|'
+      str = '|'
+      line.each do |num, board_case|
+        str += board_case.value.center(3, ' ') + '|'
+      end 
+      # str += ("#{' ' * 3}#{line('-', 3 * board.size)}").center(50, ' ')
+      # str += "\n"
+      puts str.center(50, ' ')
+      puts ('-' * (board.size * 5)).center(50, ' ')
+    end
+    
   end
 
   def score_history(hash)
@@ -25,7 +38,7 @@ class Show
     clear
     title('Nouvelle partie')
     center_text(text)
-    center_text('-' * (text.length + 10))
+    center_text('~' * (text.length + 10))
   end
 
   # effacer l'écran

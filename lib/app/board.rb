@@ -7,7 +7,7 @@ class Board
     @size = 3
     @played_cases = []
     @set = built_set_of_cases #array of hashes
-    # @cases_array = built_board_cases
+
   end
 
   # Construit la grille des cases
@@ -28,17 +28,5 @@ class Board
     end
     return set_hash
   end
-
-  # # Création des cases
-  # def built_board_cases
-  #   array = []
-  #   @grid.each do |line|
-  #     line.each do |c|
-  #       new_case = BoardCase.new(c)
-  #       array << new_case
-  #     end
-  #   end
-  #   return array
-  # end
 
 end
