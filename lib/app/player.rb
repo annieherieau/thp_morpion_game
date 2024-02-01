@@ -1,23 +1,22 @@
 # frozen_string_literal: true
 
 class Player 
-  attr_accessor :name, :case_to_play
+  attr_accessor :name, :number, :avatar, :case_to_play
   
-  def initialize
-    @name = ask_name
+  def initialize(number)
+    @name = ''
+    @number = number
     @case_to_play = ''
+    @avatar = ['🐶', '🦄​', '🐯​', '🔥', '🍀', '🎲', '😸','🥰', '😁​', '😇', '😎', '🥳'].sample
   end
 
   # demander son nom
-  def ask_name
-    @name = ''
-    # verif non vide
-    # @name = gets.chomp while  @name == ''
-    puts "gets.comp @name"   
+  def get_name
+    @name = gets.chomp while  @name == ''  
   end
 
   # demander quelle case il veut jouer
-  def ask_case_to_play
+  def get_case_to_play
     puts "gets.comp @case_to_play"
     # verif case libre boardcase.is_free?
   end
