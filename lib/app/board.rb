@@ -11,8 +11,6 @@ class Board
     built_set_of_cases #array of hashes
   end
 
-# _______ METHODES OK
-
   # jouer la case
   def play_case(player)
     played_case = set[player.choice[0]][player.choice[1].to_i]

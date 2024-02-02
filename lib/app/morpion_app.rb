@@ -33,8 +33,6 @@ class MorpionApp
       @show.winner(winner)
     end
   end
-  
-  ##_________ METHODES OK 
 
   # Lancer un nouveau game round
   def new_round
