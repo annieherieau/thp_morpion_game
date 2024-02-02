@@ -7,7 +7,8 @@ class Board
     @size = 3
     @played_cases = []
     @array_of_cases = []
-    @set = built_set_of_cases #array of hashes
+    @set = []
+    built_set_of_cases #array of hashes
   end
 
 # _______ METHODES OK
@@ -17,6 +18,7 @@ class Board
     played_case = set[player.choice[0]][player.choice[1].to_i]
     played_case.value = player.sign
     @played_cases << played_case
+
     return played_case
   end
 
@@ -47,7 +49,7 @@ class Board
         set_hash[letter][num] = BoardCase.new(case_name)
       end
     end
-    return set_hash
+    @set = set_hash
   end
 
 end

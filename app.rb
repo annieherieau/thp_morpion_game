@@ -25,23 +25,13 @@ while play_again
 
   until game.is_over?
     morpion.new_round
-
-
-
-
-
-
-
-
-
     break if game.is_over?
   end
   # --- fin GAME OVER : game.is_over? == true
 
   # AFFICHER LE SCORE
-
   # update score history
-  morpion.update_score
+  morpion.end_game
 
   # PLAY AGAIN ? demander si nouvelle partie
   play_again = morpion.play_again?

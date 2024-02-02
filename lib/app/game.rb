@@ -26,6 +26,7 @@ class Game
     return @over
   end
 
+  # gagnant par ligne OK
   def line_winner?
     p1 = 0
     p2 = 0
@@ -44,13 +45,44 @@ class Game
     return p1 == 3 || p2 == 3
   end
 
+  # gagnant par colone OK
   def row_winner?
-    false
+    array1 = Array.new(@board.size + 1, 0)
+    array2 = Array.new(@board.size + 1, 0)
+
+    @board.played_cases.each do |c|
+      array1[c.row.to_i] +=1 if c.value == 'O'   
+    end
+
+    @board.played_cases.each do |c|
+      array2[c.row.to_i] +=1 if c.value == 'X'
+    end
+
+    @winner = @player1.name if array1.include?(3)
+    @winner = @player2.name if array2.include?(3)
+    return array1.include?(3) || array2.include?(3)
   end
 
+  # gagnat par diagonale OK
   def diag_winner?
-    false
+    diag = [[@board.set['A'][1].value, @board.set['B'][2].value, @board.set['C'][3].value],
+    [@board.set['A'][3].value, @board.set['B'][2].value, @board.set['C'][1].value]]
+    p1 = 0
+    p2 = 0
+    diag.each do |array|
+      p1 = array.count do |value|
+        value == "O"
+      end
+      break if p1 == 3
+    end
+    diag.each do |array|
+      p2 = array.count do |value|
+        value == "X"
+      end
+      break if p2 == 3
+    end
+    @winner = @player1.name if p1 == 3
+    @winner = @player2.name if p2 == 3
+    return p1 == 3 || p2 == 3
   end
-
-
 end

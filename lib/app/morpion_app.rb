@@ -12,11 +12,35 @@ class MorpionApp
     @score_history = { count: 0, player1.name => 0, player2.name => 0, null: 0 }
   end
 
+
+  # Demander au joueur s'il veut rejouer
+  def play_again?
+    show.play_again
+    user_input = gets.chomp.downcase until user_input == 'o' || user_input == 'n'
+    return true if user_input == 'o'
+    return true if user_input == 'n'
+  end
+
+  # mise à jour du score
+  def end_game
+    @show.round_game(self)
+    @show.board(@game.board)
+    if @game.winner == ''
+      @show.null
+    else
+      @score_history[@game.winner] += 1
+      @game.winner == @player1.name ? winner = @player1 : winner = @player2 
+      @show.winner(winner)
+    end
+  end
+  
+  ##_________ METHODES OK 
+
   # Lancer un nouveau game round
   def new_round
     (1..2).each do |i|
       i == 1 ? player = @player1 : player = @player2
-       
+        
       @show.round_game(self)
       @show.board(@game.board)
       break if @game.is_over?
@@ -26,19 +50,6 @@ class MorpionApp
     end
   end
 
-  # Demander au joueur s'il veut rejouer
-  def play_again?
-    puts 'ask_play_again NON'
-    return false
-  end
-
-  # mise à jour du score
-  def update_score
-    puts 'UPdate score'
-  end
-
-  
-  ##_________ METHODES OK 
   # créer un nouveau joueur
   def new_player(number)
     player = Player.new(number)
@@ -62,7 +73,7 @@ class MorpionApp
 
   # fin de l'applcation
   def end
-    @show.score_history(@score_history)
+    @show.score_history(self)
     @show.bye
   end
 end

@@ -7,12 +7,35 @@ class Show
     welcome
   end
 
-  def score_history(history)
-    puts "AFFICHAGE HISTORIQUE DES SCORES"
-    puts history
+  # Demande de rejouer
+  def play_again
+    skip_line
+    print "Voulez-voy rejouer ? [o/n] "
+  end
+  
+  # affiche le vainqueur
+  def winner(player)
+    skip_line
+    center_text("⭐️" * 4)
+    center_text("#{player.avatar} #{player.name} gagne la partie !!")
   end
 
+  # Affich ematch nul
+  def null
+    skip_line
+    center_text("❌ ⭕️ " * 3)
+    center_text(" C'est un match nul !!")
+  end
   ##_________ METHODES OK 
+
+  def score_history(app)
+    skip_line
+    title ("Tableau des Scores")
+    skip_line
+    puts "Nombre de parties : #{app.score_history[:count]}"
+    puts "#{app.player1.avatar} Joueur #{app.player1.name} : #{app.score_history[app.player1.name]}"
+    puts "#{app.player1.avatar} Joueur #{app.player2.name} : #{app.score_history[app.player2.name]}"
+  end
 
   # demande le choix du joueur
   def ask_player_choice(player)
@@ -109,8 +132,5 @@ class Show
     center_text(text, border, nb_car)
     line
   end
-
-
-
  
 end
