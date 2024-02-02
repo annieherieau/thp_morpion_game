@@ -12,7 +12,6 @@ require "views/show"
 
 # ---- Début de l'application
 morpion = MorpionApp.new
-show = morpion.show
 player1 = morpion.player1
 player2 = morpion.player2
 
@@ -41,6 +40,3 @@ end
 # afficher l'historique des scores
 morpion.end
 # ---- Fin de l'application
-
-
-binding.pry

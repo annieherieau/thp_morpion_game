@@ -18,7 +18,7 @@ class MorpionApp
     show.play_again
     user_input = gets.chomp.downcase until user_input == 'o' || user_input == 'n'
     return true if user_input == 'o'
-    return true if user_input == 'n'
+    return false if user_input == 'n'
   end
 
   # mise à jour du score
@@ -44,7 +44,6 @@ class MorpionApp
       @show.round_game(self)
       @show.board(@game.board)
       break if @game.is_over?
-
       @show.ask_player_choice(player)
       @game.player_turn(i)
     end
@@ -63,6 +62,8 @@ class MorpionApp
     score_history[:count] += 1
     @game = Game.new(@player1, @player2)
     @show.game_title(self)
+    @player1.choice = ''
+    @player2.choice = ""
     return @game
   end
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Show
-  attr_accessor :grid
+  attr_accessor
   
   def initialize
     welcome
